@@ -1,13 +1,137 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --primary: #ee5b5c;
+  --white: #eeeeee;
+  --secondary: #fedcdc;
+  --black: #111111;
+  --card-width: 216px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+nav {
+  align-items: center;
+  background: var(--primary);
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  width: 100%;
+}
+
+nav > .logo {
+  color: var(--white);
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+nav > button {
+  background: var(--white);
+  border: 2px solid var(--secondary);
+  border-radius: 20px;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px;
+}
+
+nav > button:hover {
+  background: var(--secondary);
+  border-color: var(--white);
+}
+
+nav > button:disabled {
+  cursor: not-allowed;
+}
+
+.container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, var(--card-width));
+  justify-content: center;
+  padding: 20px;
+}
+
+.message {
+  align-items: center;
+  color: var(--primary);
+  display: flex;
+  flex-flow: column;
+  font-size: 24px;
+  height: calc(100vh - 80px);
+  justify-content: center;
+}
+
+.card {
+  align-items: center;
+  border-radius: 2px;
+  box-shadow: 0px 0px 2px 1px var(--primary);
+  display: flex;
+  flex-flow: column;
+  height: 240px;
+  justify-content: space-around;
+  padding: 16px;
+  width: var(--card-width);
+}
+
+.card:hover {
+  border: 1px solid var(--primary);
+}
+
+.card > img {
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  height: 120px;
+  object-fit: cover;
+  width: 120px;
+}
+
+.card > .name {
+  color: var(--primary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  word-spacing: 1px;
+}
+
+.card > .email {
+  display: flex;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+.card > .email > span {
+  color: var(--primary);
+  font-size: 24px;
+  line-height: 10px;
+  margin-right: 4px;
+}
+.card > .email > a {
+  color: var(--black);
+}
+
+.spinner {
+  animation: spin 1s infinite linear;
+  border-left: 3px solid var(--primary);
+  border-radius: 50%;
+  border-right: 3px solid var(--primary);
+  height: 48px;
+  width: 48px;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
